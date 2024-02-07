@@ -9,9 +9,6 @@ function calculateMoney(todaySell) {
   return todayAmount;
 }
 
-// const sell = calculateMoney(54);
-// console.log(sell);
-
 function checkName(inputeName) {
   if (typeof inputeName === "string") {
     const reverseNum = inputeName.split("").reverse();
@@ -36,3 +33,21 @@ function checkName(inputeName) {
     return "Invalid";
   }
 }
+
+function deleteInvalids(array) {
+  let newAray = [];
+  for (let num of array) {
+    // const err1 = NaN;
+    // const err2 = undefined;
+    if (typeof num === "number") {
+      if (isNaN(num)) {
+        continue;
+      }
+      newAray.push(num);
+    }
+  }
+  return newAray;
+}
+const element = [undefined, 3, 3, 4, 5, 66, 7, -3];
+const arry = deleteInvalids(element);
+console.log(arry);
