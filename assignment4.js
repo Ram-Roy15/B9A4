@@ -35,19 +35,21 @@ function checkName(inputeName) {
 }
 
 function deleteInvalids(array) {
-  let newAray = [];
-  for (let num of array) {
-    // const err1 = NaN;
-    // const err2 = undefined;
-    if (typeof num === "number") {
-      if (isNaN(num)) {
-        continue;
+  if (Array.isArray(array)) {
+    let newAray = [];
+    for (let num of array) {
+      if (typeof num === "number") {
+        if (isNaN(num)) {
+          continue;
+        }
+        newAray.push(num);
       }
-      newAray.push(num);
     }
+    return newAray;
+  } else {
+    return "Invalid Array";
   }
-  return newAray;
 }
-const element = [undefined, 3, 3, 4, 5, 66, 7, -3];
-const arry = deleteInvalids(element);
-console.log(arry);
+const ar = [12, 4, 1, 425, 325, 65, 7637];
+const cal = deleteInvalids(ar);
+console.log(cal);
