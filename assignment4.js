@@ -86,3 +86,7 @@ function monthlySavings(payments, livingCost) {
     return "invalid input";
   }
 }
+
+// helping hand
+
+// https://chat.openai.com/share/5fd5e20d-484d-4c55-9eb2-edb177a64e4b
