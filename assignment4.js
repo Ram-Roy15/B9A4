@@ -50,6 +50,19 @@ function deleteInvalids(array) {
     return "Invalid Array";
   }
 }
-const ar = [12, 4, 1, 425, 325, 65, 7637];
-const cal = deleteInvalids(ar);
-console.log(cal);
+// const ar = [12, 4, 1, 425, 325, 65, 7637, "ram"];
+// const cal = deleteInvalids(ar);
+// console.log(cal);
+
+function password(pas) {
+  const site = typeof pas.siteName;
+  const name = typeof pas.name;
+  const birth = typeof pas.birthYear;
+  if (site === "string" && birth === "number" && name === "string") {
+    let password = pas.siteName + "#" + pas.name + "@" + pas.birthYear;
+    return password;
+  }
+}
+// const obj = { name: "kolimuddin", birthYear: 199, siteName: "google" };
+// const pas = password(obj);
+// console.log(pas);
