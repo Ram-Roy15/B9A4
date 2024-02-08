@@ -66,3 +66,20 @@ function password(pas) {
 // const obj = { name: "kolimuddin", birthYear: 199, siteName: "google" };
 // const pas = password(obj);
 // console.log(pas);
+
+function monthlySavings(payments, livingCost) {
+  let totalIncome = 0;
+  for (let payment of payments) {
+    let newPayment = payment > 3000 ? payment - payment * 0.2 : payment;
+    totalIncome = totalIncome + newPayment;
+  }
+  let saving = totalIncome - livingCost;
+  if (saving <= 0) {
+    return "earn more";
+  } else {
+    return saving;
+  }
+}
+
+// const saving = monthlySavings([2200, 200, 300], 1000);
+// console.log(saving);
