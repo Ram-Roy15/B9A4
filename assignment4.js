@@ -50,11 +50,16 @@ function deleteInvalids(array) {
     return "Invalid Array";
   }
 }
-// const ar = [12, 4, 1, 425, 325, 65, 7637, "ram"];
-// const cal = deleteInvalids(ar);
-// console.log(cal);
 
 function password(pas) {
+  if (!pas.name || !pas.birthYear || !pas.siteName) {
+    return "Invalid";
+  }
+
+  const birthDateString = pas.birthYear.toString();
+  if (birthDateString.length < 4) {
+    return "Invalid";
+  }
   const site = typeof pas.siteName;
   const name = typeof pas.name;
   const birth = typeof pas.birthYear;
@@ -63,23 +68,21 @@ function password(pas) {
     return password;
   }
 }
-// const obj = { name: "kolimuddin", birthYear: 199, siteName: "google" };
-// const pas = password(obj);
-// console.log(pas);
 
 function monthlySavings(payments, livingCost) {
-  let totalIncome = 0;
-  for (let payment of payments) {
-    let newPayment = payment > 3000 ? payment - payment * 0.2 : payment;
-    totalIncome = totalIncome + newPayment;
-  }
-  let saving = totalIncome - livingCost;
-  if (saving <= 0) {
-    return "earn more";
+  if (Array.isArray(payments) && typeof livingCost === "number") {
+    let totalIncome = 0;
+    for (let payment of payments) {
+      let newPayment = payment > 3000 ? payment - payment * 0.2 : payment;
+      totalIncome = totalIncome + newPayment;
+    }
+    let saving = totalIncome - livingCost;
+    if (saving <= 0) {
+      return "earn more";
+    } else {
+      return saving;
+    }
   } else {
-    return saving;
+    return "invalid input";
   }
 }
-
-// const saving = monthlySavings([2200, 200, 300], 1000);
-// console.log(saving);
